@@ -11,4 +11,12 @@ public static class Enums
         ALL,
         NONE
     };
+
+    public enum GAME_STATE
+    {
+        MENU,
+        SELECTION,
+        GAME,
+        END
+    };
 }

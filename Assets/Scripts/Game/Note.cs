@@ -6,6 +6,7 @@ public class Note : MonoBehaviour
 {
     public Enums.TYPE_NOTE type = Enums.TYPE_NOTE.ALL;
     SpriteRenderer _sr;
+    [SerializeField] float _speed = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,6 @@ public class Note : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector3.left * Time.deltaTime * _speed);
     }
 }

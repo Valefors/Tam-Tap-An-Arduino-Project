@@ -12,6 +12,8 @@ public class OnTap:Event
     }
 }
 
+public class OnGameStateChanged:Event { }
+
 public class EventsManager
 {
     static EventsManager instance = null;

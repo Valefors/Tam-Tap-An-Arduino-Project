@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Drum drum = null;
+    public Enums.GAME_STATE state = Enums.GAME_STATE.MENU;
 
     #region Singleton
     public static GameManager instance {
@@ -62,8 +63,38 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow)) EventsManager.Instance.Raise(new OnTap(false));
-        if(Input.GetKeyDown(KeyCode.RightArrow)) EventsManager.Instance.Raise(new OnTap(true));
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (state == Enums.GAME_STATE.MENU)
+            {
+                state = Enums.GAME_STATE.SELECTION;
+                print("1");
+            }
+
+            else if (state == Enums.GAME_STATE.SELECTION)
+            {
+                state = Enums.GAME_STATE.GAME;
+                print("2");
+            }
+
+            else if (state == Enums.GAME_STATE.GAME)
+            {
+                state = Enums.GAME_STATE.END;
+                print("3");
+            }
+
+            else if (state == Enums.GAME_STATE.END)
+            {
+                state = Enums.GAME_STATE.MENU;
+                print("4");
+            }
+
+            else print("tg");
+
+            EventsManager.Instance.Raise(new OnGameStateChanged());
+        }
+        //if(Input.GetKeyDown(KeyCode.LeftArrow)) EventsManager.Instance.Raise(new OnTap(false));
+        //if(Input.GetKeyDown(KeyCode.RightArrow)) EventsManager.Instance.Raise(new OnTap(true));
     }
 
     void OnDestroy()

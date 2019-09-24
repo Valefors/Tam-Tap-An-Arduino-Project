@@ -53,7 +53,8 @@ public class SampleUserPolling_ReadWrite : MonoBehaviour
         else
         {
             Debug.Log("Message arrived: " + message);
-            EventsManager.Instance.Raise(new OnTap(false));
+            if(message == "left") EventsManager.Instance.Raise(new OnTap(false));
+            if(message == "right") EventsManager.Instance.Raise(new OnTap(true));
         }
     }
 
