@@ -19,6 +19,8 @@ public class Drum : MonoBehaviour
     {
         if (_currentNote == null) return;
 
+        if (_currentNote.isLastNote) StartCoroutine(EndCoroutine());
+
         Destroy(_currentNote.gameObject);
         _currentNote = null;
         drumState = Enums.TYPE_NOTE.NONE;
@@ -27,5 +29,11 @@ public class Drum : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         DestroyNote();
+    }
+
+    IEnumerator EndCoroutine()
+    {
+       yield return new WaitForSeconds(2);
+       EventsManager.Instance.Raise(new OnEndGame());
     }
 }

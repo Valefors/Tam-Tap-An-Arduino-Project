@@ -21,15 +21,57 @@ public class GameManager : MonoBehaviour
         _instance = this;
 
         EventsManager.Instance.AddListener<OnTap>(OnTapReceive);
+        EventsManager.Instance.AddListener<OnEndGame>(OnEndGame);
 
         if (drum == null) Debug.LogError("NO DRUM INSERT");
     }
     #endregion
 
+    void OnEndGame(OnEndGame e)
+    {
+        state = Enums.GAME_STATE.END;
+        EventsManager.Instance.Raise(new OnGameStateChanged());
+    }
+
     void OnTapReceive(OnTap e)
     {
         bool lRight = e.isRight;
-        CheckCorrectTap(lRight);
+
+        switch (state)
+        {
+            case Enums.GAME_STATE.MENU:
+                state = Enums.GAME_STATE.SELECTION;
+                EventsManager.Instance.Raise(new OnGameStateChanged());
+                return;
+
+            case Enums.GAME_STATE.SELECTION:
+
+                if (lRight) print("hard mode");
+                else print("ez mode");
+
+                state = Enums.GAME_STATE.GAME;
+                EventsManager.Instance.Raise(new OnGameStateChanged());
+                return;
+
+            case Enums.GAME_STATE.GAME:
+                CheckCorrectTap(lRight);
+                return;
+
+            case Enums.GAME_STATE.END:
+                if (lRight)
+                {
+                    state = Enums.GAME_STATE.MENU;
+                }
+
+                else
+                {
+                    state = Enums.GAME_STATE.GAME;
+                }
+
+                EventsManager.Instance.Raise(new OnGameStateChanged());
+                return;
+
+        }
     }
 
     void CheckCorrectTap(bool pIsRight)
@@ -63,7 +105,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             if (state == Enums.GAME_STATE.MENU)
             {
@@ -92,9 +134,9 @@ public class GameManager : MonoBehaviour
             else print("tg");
 
             EventsManager.Instance.Raise(new OnGameStateChanged());
-        }
-        //if(Input.GetKeyDown(KeyCode.LeftArrow)) EventsManager.Instance.Raise(new OnTap(false));
-        //if(Input.GetKeyDown(KeyCode.RightArrow)) EventsManager.Instance.Raise(new OnTap(true));
+        }*/
+        if(Input.GetKeyDown(KeyCode.LeftArrow)) EventsManager.Instance.Raise(new OnTap(false));
+        if(Input.GetKeyDown(KeyCode.RightArrow)) EventsManager.Instance.Raise(new OnTap(true));
     }
 
     void OnDestroy()
