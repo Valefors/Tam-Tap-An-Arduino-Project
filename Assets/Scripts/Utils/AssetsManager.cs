@@ -4,8 +4,8 @@ using UnityEngine;
 
 public static class AssetsManager
 {
-    public static Sprite monkeyNoHandSprite = Resources.Load("Monkey/Poses/bongo-cat-no-hand", typeof(Sprite)) as Sprite;
-    public static Sprite monkeyRightHandSprite = Resources.Load("Monkey/Poses/bongo-cat-right-hand", typeof(Sprite)) as Sprite;
-    public static Sprite monkeyLeftHandSprite = Resources.Load("Monkey/Poses/bongo-cat-left-hand", typeof(Sprite)) as Sprite;
-    public static Sprite monkeyBothHandsSprite = Resources.Load("Monkey/Poses/bongo-cat-both-hands", typeof(Sprite)) as Sprite;
+    public static Sprite monkeyRightHandDownSprite = Resources.Load("Monkey/Poses/right_hand_down", typeof(Sprite)) as Sprite;
+    public static Sprite monkeyRightHandUpSprite = Resources.Load("Monkey/Poses/right_hand_up", typeof(Sprite)) as Sprite;
+    public static Sprite monkeyLeftHandDownSprite = Resources.Load("Monkey/Poses/left_hand_down", typeof(Sprite)) as Sprite;
+    public static Sprite monkeyLeftHandUpSprite = Resources.Load("Monkey/Poses/left_hand_up", typeof(Sprite)) as Sprite;
 }
