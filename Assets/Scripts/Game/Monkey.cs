@@ -9,6 +9,8 @@ public class Monkey : MonoBehaviour
 
     [SerializeField] SpriteRenderer _leftHand;
     [SerializeField] SpriteRenderer _rightHand;
+    [SerializeField] ParticleSystem _particleRightHand;
+    [SerializeField] ParticleSystem _particleLeftHand;
     [SerializeField] SpriteRenderer _expression;
 
     float _rightHandTimer = 0;
@@ -71,7 +73,7 @@ public class Monkey : MonoBehaviour
             case Enums.TYPE_NOTE.RIGHT:
                 _rightHand.sprite = AssetsManager.monkeyRightHandDownSprite;
                 _rightHand.sortingOrder = LAYER_FRONT;
-
+                _particleRightHand.Play();
                 _leftHand.sprite = AssetsManager.monkeyLeftHandUpSprite;
                 _leftHand.sortingOrder = LAYER_BACK;
                 break;
@@ -87,7 +89,7 @@ public class Monkey : MonoBehaviour
             case Enums.TYPE_NOTE.LEFT:
                 _leftHand.sprite = AssetsManager.monkeyLeftHandDownSprite;
                 _leftHand.sortingOrder = LAYER_FRONT;
-
+                _particleLeftHand.Play();
                 _rightHand.sprite = AssetsManager.monkeyRightHandUpSprite;
                 _rightHand.sortingOrder = LAYER_BACK;
                 break;
