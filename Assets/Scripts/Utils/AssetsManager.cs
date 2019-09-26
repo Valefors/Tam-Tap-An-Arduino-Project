@@ -8,4 +8,7 @@ public static class AssetsManager
     public static Sprite monkeyRightHandUpSprite = Resources.Load("Monkey/Poses/right_hand_up", typeof(Sprite)) as Sprite;
     public static Sprite monkeyLeftHandDownSprite = Resources.Load("Monkey/Poses/left_hand_down", typeof(Sprite)) as Sprite;
     public static Sprite monkeyLeftHandUpSprite = Resources.Load("Monkey/Poses/left_hand_up", typeof(Sprite)) as Sprite;
+
+    public static Sprite rightNote = Resources.Load("Notes/blue_note", typeof(Sprite)) as Sprite;
+    public static Sprite leftNote = Resources.Load("Notes/red_note", typeof(Sprite)) as Sprite;
 }

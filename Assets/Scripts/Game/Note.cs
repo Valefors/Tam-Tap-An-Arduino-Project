@@ -25,11 +25,11 @@ public class Note : MonoBehaviour
                 return;
 
             case Enums.TYPE_NOTE.RIGHT:
-                _sr.color = Color.blue;
+                _sr.sprite = AssetsManager.rightNote;
                 return;
 
             case Enums.TYPE_NOTE.LEFT:
-                _sr.color = Color.red;
+                _sr.sprite = AssetsManager.leftNote;
                 return;
 
             case Enums.TYPE_NOTE.NONE:
