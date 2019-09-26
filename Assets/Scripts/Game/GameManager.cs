@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Drum drum = null;
     public Enums.GAME_STATE state = Enums.GAME_STATE.MENU;
 
+	public int score = 0;
+
     #region Singleton
     public static GameManager instance {
         get { return _instance; }
@@ -67,6 +69,7 @@ public class GameManager : MonoBehaviour
                 {
                     state = Enums.GAME_STATE.GAME;
                 }
+				ResetScore ();
 
                 EventsManager.Instance.Raise(new OnGameStateChanged());
                 return;
@@ -79,22 +82,29 @@ public class GameManager : MonoBehaviour
         switch (drum.drumState)
         {
             case Enums.TYPE_NOTE.RIGHT:
-                if (pIsRight) print("CORRECT RIGHT TAP");
-                else print("FAILED");
+				if (pIsRight) {
+					print ("CORRECT RIGHT TAP");
+					ChangedScore (100);
+				}
+				else print ("FAILED");
 
                 drum.DestroyNote();
                 break;
 
             case Enums.TYPE_NOTE.LEFT:
-                if (!pIsRight) print("CORRECT LEFT TAP");
-                else print("FAILED");
+				if (!pIsRight) {
+					print ("CORRECT LEFT TAP");
+					ChangedScore (100);
+				}
+				else print ("FAILED");
 
                 drum.DestroyNote();
                 break;
 
             case Enums.TYPE_NOTE.ALL:
                 print("CORRECT TAP");
-                break;
+				ChangedScore (100);
+				break;
 
             case Enums.TYPE_NOTE.NONE:
                 print("FAILED");
@@ -102,6 +112,16 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+	void ResetScore() {
+		score = 0;
+		EventsManager.Instance.Raise (new OnScoreChanged ());
+	}
+
+	void ChangedScore(int value) {
+		score += value;
+		EventsManager.Instance.Raise (new OnScoreChanged ());
+	}
 
     private void Update()
     {
