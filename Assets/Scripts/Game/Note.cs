@@ -21,7 +21,7 @@ public class Note : MonoBehaviour
         switch (type)
         {
             case Enums.TYPE_NOTE.ALL :
-                _sr.color = Color.green;
+                _sr.color = Color.white;
                 return;
 
             case Enums.TYPE_NOTE.RIGHT:
@@ -42,7 +42,7 @@ public class Note : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.state != Enums.GAME_STATE.GAME) return;
+        if (GameManager.instance.state != Enums.GAME_STATE.GAME && GameManager.instance.state != Enums.GAME_STATE.CREATE) return;
         transform.Translate(Vector3.left * Time.deltaTime * _speed);
     }
 }

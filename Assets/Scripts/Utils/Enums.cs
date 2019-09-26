@@ -17,6 +17,7 @@ public static class Enums
         MENU,
         SELECTION,
         GAME,
+        CREATE,
         END
     };
 }

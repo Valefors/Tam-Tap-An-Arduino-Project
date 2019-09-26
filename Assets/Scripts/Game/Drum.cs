@@ -7,12 +7,28 @@ public class Drum : MonoBehaviour
     public Enums.TYPE_NOTE drumState = Enums.TYPE_NOTE.NONE;
     Note _currentNote = null;
 
+    [SerializeField] Note _notePrefab = null;
+
+    private void Start()
+    {
+        EventsManager.Instance.AddListener<OnTap>(CreateNote);
+    }
+
     private void OnTriggerEnter(Collider pCollider)
     {
+        if (GameManager.instance.state == Enums.GAME_STATE.CREATE) return;
+
         if (!pCollider.GetComponent<Note>()) return;
 
         _currentNote = pCollider.GetComponent<Note>();
         drumState = _currentNote.type;
+    }
+
+    void CreateNote(OnTap e)
+    {
+        if (GameManager.instance.state != Enums.GAME_STATE.CREATE) return;
+
+        Instantiate(_notePrefab, transform.position, Quaternion.identity);
     }
 
     public void DestroyNote()
@@ -28,6 +44,7 @@ public class Drum : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (GameManager.instance.state == Enums.GAME_STATE.CREATE) return;
         DestroyNote();
     }
 
@@ -35,5 +52,10 @@ public class Drum : MonoBehaviour
     {
        yield return new WaitForSeconds(2);
        EventsManager.Instance.Raise(new OnEndGame());
+    }
+
+    private void OnDestroy()
+    {
+        EventsManager.Instance.RemoveListener<OnTap>(CreateNote);
     }
 }
