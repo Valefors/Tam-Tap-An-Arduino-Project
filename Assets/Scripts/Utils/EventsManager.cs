@@ -12,6 +12,8 @@ public class OnTap:Event
     }
 }
 
+public class OnScoreChanged:Event { }
+
 public class OnGameStateChanged:Event { }
 
 public class OnEndGame:Event { }

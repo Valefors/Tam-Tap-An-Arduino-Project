@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,13 +12,20 @@ public class UIManager : MonoBehaviour
 
     RectTransform _currentScreen;
 
+	[SerializeField] Text _gameScore;
+	[SerializeField] Text _endScore;
+
     // Start is called before the first frame update
     void Start()
     {
         EventsManager.Instance.AddListener<OnGameStateChanged>(DisplayScreen);
+        EventsManager.Instance.AddListener<OnScoreChanged>(DisplayScore);
         _currentScreen = menuScreen;
         _currentScreen.gameObject.SetActive(true);
-    }
+
+		_gameScore.text = 0.ToString ();
+		_endScore.text = "Ton score : 0";
+	}
 
     void DisplayScreen(OnGameStateChanged e)
     {
@@ -48,8 +56,14 @@ public class UIManager : MonoBehaviour
         _currentScreen.gameObject.SetActive(true);
     }
 
+	void DisplayScore(OnScoreChanged e) {
+		_gameScore.text = GameManager.instance.score.ToString ();
+		_endScore.text = "Ton score : " + GameManager.instance.score.ToString ();
+	}
+
     private void OnDestroy()
     {
         EventsManager.Instance.RemoveListener<OnGameStateChanged>(DisplayScreen);
+        EventsManager.Instance.RemoveListener<OnScoreChanged>(DisplayScore);
     }
 }
