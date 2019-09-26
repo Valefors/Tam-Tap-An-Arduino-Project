@@ -2527,6 +2527,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drum: {fileID: 121023382}
   state: 0
+  prefabStarsParticles: {fileID: 5053028871666383209, guid: 13f4af3fe709f2046aecdab93de50235,
+    type: 3}
   score: 0
 --- !u!1 &763637401
 GameObject:

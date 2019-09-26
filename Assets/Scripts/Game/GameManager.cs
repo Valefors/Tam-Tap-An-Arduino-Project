@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] Drum drum = null;
     public Enums.GAME_STATE state = Enums.GAME_STATE.MENU;
-
+	public GameObject prefabStarsParticles;
 	public int score = 0;
 
     #region Singleton
@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
 				if (pIsRight) {
 					print ("CORRECT RIGHT TAP");
 					ChangedScore (100);
+					Instantiate (prefabStarsParticles, drum.transform.position, Quaternion.identity);
 				}
 				else print ("FAILED");
 
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
 				if (!pIsRight) {
 					print ("CORRECT LEFT TAP");
 					ChangedScore (100);
+					Instantiate (prefabStarsParticles, drum.transform.position, Quaternion.identity);
 				}
 				else print ("FAILED");
 
@@ -104,6 +106,7 @@ public class GameManager : MonoBehaviour
             case Enums.TYPE_NOTE.ALL:
                 print("CORRECT TAP");
 				ChangedScore (100);
+				Instantiate (prefabStarsParticles, drum.transform.position, Quaternion.identity);
 				break;
 
             case Enums.TYPE_NOTE.NONE:
