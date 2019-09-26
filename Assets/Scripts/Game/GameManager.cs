@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] Drum drum = null;
     public Enums.GAME_STATE state = Enums.GAME_STATE.MENU;
-
+    public GameObject prefabStarsParticles;
     #region Singleton
     public static GameManager instance {
         get { return _instance; }
@@ -79,20 +79,29 @@ public class GameManager : MonoBehaviour
         switch (drum.drumState)
         {
             case Enums.TYPE_NOTE.RIGHT:
-                if (pIsRight) print("CORRECT RIGHT TAP");
+                if (pIsRight)
+                {
+                    print("CORRECT RIGHT TAP");
+                    Instantiate(prefabStarsParticles,new Vector3( drum.transform.position.x, drum.transform.position.y, 5), Quaternion.identity);
+                }
                 else print("FAILED");
 
                 drum.DestroyNote();
                 break;
 
             case Enums.TYPE_NOTE.LEFT:
-                if (!pIsRight) print("CORRECT LEFT TAP");
+                if (!pIsRight)
+                {
+                    print("CORRECT LEFT TAP");
+                    Instantiate(prefabStarsParticles, drum.transform.position, Quaternion.identity);
+                }
                 else print("FAILED");
 
                 drum.DestroyNote();
                 break;
 
             case Enums.TYPE_NOTE.ALL:
+                Instantiate(prefabStarsParticles, drum.transform.position, Quaternion.identity);
                 print("CORRECT TAP");
                 break;
 
