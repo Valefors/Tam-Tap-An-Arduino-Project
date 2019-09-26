@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public Enums.GAME_STATE state = Enums.GAME_STATE.MENU;
 	public GameObject prefabStarsParticles;
 	public int score = 0;
+	[SerializeField] GameObject _level;
+	GameObject _currentLevel;
 
     #region Singleton
     public static GameManager instance {
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
     {
         state = Enums.GAME_STATE.END;
         EventsManager.Instance.Raise(new OnGameStateChanged());
+		Destroy (_currentLevel);
     }
 
     void OnTapReceive(OnTap e)
@@ -52,6 +55,7 @@ public class GameManager : MonoBehaviour
                 else print("ez mode");
 
                 state = Enums.GAME_STATE.GAME;
+				_currentLevel = Instantiate (_level);
                 EventsManager.Instance.Raise(new OnGameStateChanged());
                 return;
 
@@ -68,7 +72,8 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     state = Enums.GAME_STATE.GAME;
-                }
+					_currentLevel = Instantiate (_level);
+				}
 				ResetScore ();
 
                 EventsManager.Instance.Raise(new OnGameStateChanged());
@@ -160,6 +165,8 @@ public class GameManager : MonoBehaviour
         }*/
         if(Input.GetKeyDown(KeyCode.LeftArrow)) EventsManager.Instance.Raise(new OnTap(false));
         if(Input.GetKeyDown(KeyCode.RightArrow)) EventsManager.Instance.Raise(new OnTap(true));
+
+
     }
 
     void OnDestroy()

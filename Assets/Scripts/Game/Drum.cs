@@ -5,7 +5,7 @@ using UnityEngine;
 public class Drum : MonoBehaviour
 {
     public Enums.TYPE_NOTE drumState = Enums.TYPE_NOTE.NONE;
-    Note _currentNote = null;
+	Queue<Note> _currentNotes = new Queue<Note>();
 
     [SerializeField] Note _notePrefab = null;
 
@@ -20,8 +20,10 @@ public class Drum : MonoBehaviour
 
         if (!pCollider.GetComponent<Note>()) return;
 
-        _currentNote = pCollider.GetComponent<Note>();
-        drumState = _currentNote.type;
+		_currentNotes.Enqueue (pCollider.GetComponent<Note> ());
+		if (_currentNotes.Count == 1) {
+			drumState = _currentNotes.Peek().type;
+		}
     }
 
     void CreateNote(OnTap e)
@@ -33,13 +35,18 @@ public class Drum : MonoBehaviour
 
     public void DestroyNote()
     {
-        if (_currentNote == null) return;
+        if (_currentNotes.Count == 0) return;
 
-        if (_currentNote.isLastNote) StartCoroutine(EndCoroutine());
+        if (_currentNotes.Peek().isLastNote) StartCoroutine(EndCoroutine());
 
-        Destroy(_currentNote.gameObject);
-        _currentNote = null;
-        drumState = Enums.TYPE_NOTE.NONE;
+		Note lNote = _currentNotes.Dequeue ();
+        Destroy(lNote.gameObject);
+
+		if (_currentNotes.Count == 0) {
+			drumState = Enums.TYPE_NOTE.NONE;
+		} else {
+			drumState = _currentNotes.Peek().type;
+		}
     }
 
     private void OnTriggerExit(Collider other)
