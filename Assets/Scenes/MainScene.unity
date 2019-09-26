@@ -231,6 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 43384355}
   - component: {fileID: 43384356}
+  - component: {fileID: 43384357}
   m_Layer: 0
   m_Name: lanterne_fleur (1)
   m_TagString: Untagged
@@ -300,6 +301,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &43384357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43384354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &54066713
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 70844034}
   - component: {fileID: 70844035}
+  - component: {fileID: 70844036}
   m_Layer: 0
   m_Name: lanterne_base (1)
   m_TagString: Untagged
@@ -488,6 +502,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &70844036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70844033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &87502051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,6 +1044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 128653872}
   - component: {fileID: 128653873}
+  - component: {fileID: 128653874}
   m_Layer: 0
   m_Name: lanterne_base
   m_TagString: Untagged
@@ -1087,6 +1114,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &128653874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128653871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &131505189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,6 +1354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 132404800}
   - component: {fileID: 132404801}
+  - component: {fileID: 132404802}
   m_Layer: 0
   m_Name: lanterne_magatama
   m_TagString: Untagged
@@ -1384,6 +1424,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &132404802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132404799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &169319806
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,6 +2469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 262248413}
   - component: {fileID: 262248414}
+  - component: {fileID: 262248415}
   m_Layer: 0
   m_Name: lanterne_base (2)
   m_TagString: Untagged
@@ -2486,6 +2539,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &262248415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262248412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &263399306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2657,6 +2722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 267144315}
   - component: {fileID: 267144316}
+  - component: {fileID: 267144317}
   m_Layer: 0
   m_Name: lanterne_base (2)
   m_TagString: Untagged
@@ -2726,6 +2792,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &267144317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267144314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &268431399
 GameObject:
   m_ObjectHideFlags: 0
@@ -4041,6 +4119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 395111586}
   - component: {fileID: 395111587}
+  - component: {fileID: 395111588}
   m_Layer: 0
   m_Name: lanterne_base (1)
   m_TagString: Untagged
@@ -4110,6 +4189,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &395111588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395111585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &411967538
 GameObject:
   m_ObjectHideFlags: 0
@@ -4641,6 +4732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 458738304}
   - component: {fileID: 458738305}
+  - component: {fileID: 458738306}
   m_Layer: 0
   m_Name: lanterne_cali
   m_TagString: Untagged
@@ -4710,6 +4802,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &458738306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458738303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &462873300
 GameObject:
   m_ObjectHideFlags: 0
@@ -5892,6 +5996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 595201081}
   - component: {fileID: 595201082}
+  - component: {fileID: 595201083}
   m_Layer: 0
   m_Name: lanterne_fleur
   m_TagString: Untagged
@@ -5961,6 +6066,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &595201083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595201080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &596450888
 GameObject:
   m_ObjectHideFlags: 0
@@ -5971,6 +6088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596450889}
   - component: {fileID: 596450890}
+  - component: {fileID: 596450891}
   m_Layer: 0
   m_Name: lanterne_magatama (1)
   m_TagString: Untagged
@@ -6040,6 +6158,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &596450891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596450888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &627544664
 GameObject:
   m_ObjectHideFlags: 0
@@ -7467,6 +7597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 787255680}
   - component: {fileID: 787255681}
+  - component: {fileID: 787255682}
   m_Layer: 0
   m_Name: lanterne_fleur
   m_TagString: Untagged
@@ -7536,6 +7667,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &787255682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787255679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &803734373
 GameObject:
   m_ObjectHideFlags: 0
@@ -7932,6 +8075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 826119410}
   - component: {fileID: 826119411}
+  - component: {fileID: 826119412}
   m_Layer: 0
   m_Name: lanterne_cali
   m_TagString: Untagged
@@ -8001,6 +8145,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &826119412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826119409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &831411837
 GameObject:
   m_ObjectHideFlags: 0
@@ -8049,6 +8205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 848924571}
   - component: {fileID: 848924572}
+  - component: {fileID: 848924573}
   m_Layer: 0
   m_Name: lanterne_magatama
   m_TagString: Untagged
@@ -8118,6 +8275,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &848924573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848924570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &858140008
 GameObject:
   m_ObjectHideFlags: 0
@@ -8521,6 +8690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 952997111}
   - component: {fileID: 952997112}
+  - component: {fileID: 952997113}
   m_Layer: 0
   m_Name: lanterne_magatama
   m_TagString: Untagged
@@ -8590,6 +8760,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &952997113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952997110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &953431907
 GameObject:
   m_ObjectHideFlags: 0
@@ -9097,6 +9279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1060713197}
   - component: {fileID: 1060713198}
+  - component: {fileID: 1060713199}
   m_Layer: 0
   m_Name: lanterne_fleur
   m_TagString: Untagged
@@ -9166,6 +9349,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1060713199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060713196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1076880727
 GameObject:
   m_ObjectHideFlags: 0
@@ -9580,6 +9775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1115506395}
   - component: {fileID: 1115506396}
+  - component: {fileID: 1115506397}
   m_Layer: 0
   m_Name: lanterne_base (1)
   m_TagString: Untagged
@@ -9649,6 +9845,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1115506397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115506394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1138506954
 GameObject:
   m_ObjectHideFlags: 0
@@ -11076,6 +11284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1258665917}
   - component: {fileID: 1258665918}
+  - component: {fileID: 1258665919}
   m_Layer: 0
   m_Name: lanterne_magatama (2)
   m_TagString: Untagged
@@ -11145,6 +11354,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1258665919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258665916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1273292912
 GameObject:
   m_ObjectHideFlags: 0
@@ -11234,6 +11455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1314053079}
   - component: {fileID: 1314053080}
+  - component: {fileID: 1314053081}
   m_Layer: 0
   m_Name: lanterne_base
   m_TagString: Untagged
@@ -11303,6 +11525,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1314053081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314053078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1322124025
 GameObject:
   m_ObjectHideFlags: 0
@@ -12727,6 +12961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1528049872}
   - component: {fileID: 1528049873}
+  - component: {fileID: 1528049874}
   m_Layer: 0
   m_Name: lanterne_fleur (1)
   m_TagString: Untagged
@@ -12796,6 +13031,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1528049874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528049871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1579192713
 GameObject:
   m_ObjectHideFlags: 0
@@ -13622,6 +13869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1722615869}
   - component: {fileID: 1722615870}
+  - component: {fileID: 1722615871}
   m_Layer: 0
   m_Name: lanterne_base
   m_TagString: Untagged
@@ -13691,6 +13939,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1722615871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722615868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1746608570
 GameObject:
   m_ObjectHideFlags: 0
@@ -13810,6 +14070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1749448025}
   - component: {fileID: 1749448026}
+  - component: {fileID: 1749448027}
   m_Layer: 0
   m_Name: lanterne_cali
   m_TagString: Untagged
@@ -13879,6 +14140,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1749448027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749448024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1762858402
 GameObject:
   m_ObjectHideFlags: 0
@@ -15022,6 +15295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1886437693}
   - component: {fileID: 1886437694}
+  - component: {fileID: 1886437695}
   m_Layer: 0
   m_Name: lanterne_magatama (1)
   m_TagString: Untagged
@@ -15091,6 +15365,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1886437695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886437692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1890181467
 GameObject:
   m_ObjectHideFlags: 0
@@ -16099,6 +16385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2016748905}
   - component: {fileID: 2016748906}
+  - component: {fileID: 2016748907}
   m_Layer: 0
   m_Name: lanterne_cali (1)
   m_TagString: Untagged
@@ -16168,6 +16455,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2016748907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016748904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df128192eff6d74ab871b116cd64202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2050627874
 GameObject:
   m_ObjectHideFlags: 0
