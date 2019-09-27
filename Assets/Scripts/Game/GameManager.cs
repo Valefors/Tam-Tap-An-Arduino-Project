@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
 					ChangedScore (100);
 					Instantiate (prefabStarsParticles, _drum.GetLastNote ().transform.position, Quaternion.identity);
 					EventsManager.Instance.Raise (new OnSFXPlay (Enums.TYPE_SFX.TAP_RIGHT));
+					MonkeyScream ();
 					_drum.DestroyNote ();
 				}
 				else {
@@ -124,6 +125,7 @@ public class GameManager : MonoBehaviour
 					Instantiate (prefabStarsParticles, _drum.GetLastNote ().transform.position, Quaternion.identity);
 					_drum.DestroyNote ();
 					EventsManager.Instance.Raise (new OnSFXPlay (Enums.TYPE_SFX.TAP_LEFT));
+					MonkeyScream ();
 				}
 				else {
 					print ("FAILED");
@@ -140,7 +142,8 @@ public class GameManager : MonoBehaviour
                 {
                     EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.TAP_RIGHT));
                 }
-                print("CORRECT TAP");
+				MonkeyScream ();
+				print ("CORRECT TAP");
 				ChangedScore (100);
 				//Instantiate (prefabStarsParticles, drum.transform.position, Quaternion.identity);
 				_drum.ScaleNote ();
@@ -155,6 +158,18 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+	void MonkeyScream () {
+		int random = Random.Range(0, 100);
+
+		if (random < 90) {
+			return;
+		} else if (random < 95) {
+			EventsManager.Instance.Raise (new OnSFXPlay (Enums.TYPE_SFX.MOKEY_NEUTRAL));
+		} else {
+			EventsManager.Instance.Raise (new OnSFXPlay (Enums.TYPE_SFX.MOKEY_HAPPY));
+		}
+	}
 
 	void ResetScore() {
 		score = 0;
