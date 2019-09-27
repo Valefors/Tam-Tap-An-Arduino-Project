@@ -14,4 +14,8 @@ public static class AssetsManager
 
     public static Sprite bambooHard = Resources.Load("Decors/bambou", typeof(Sprite)) as Sprite;
     public static Sprite bambooEasy = Resources.Load("Decors/bambou_2", typeof(Sprite)) as Sprite;
+
+    public static Sprite monkeyNeutralFace = Resources.Load("Monkey/Expressions/monkey_neutral", typeof(Sprite)) as Sprite;
+    public static Sprite monkeyHappyFace = Resources.Load("Monkey/Expressions/monkey_happy", typeof(Sprite)) as Sprite;
+    public static Sprite monkeyVeryHappyFace = Resources.Load("Monkey/Expressions/monkey_very_happy", typeof(Sprite)) as Sprite;
 }

@@ -101,33 +101,45 @@ public class GameManager : MonoBehaviour
 
     void CheckCorrectTap(bool pIsRight)
     {
-        switch (_drum.drumState)
-        {
-            case Enums.TYPE_NOTE.RIGHT:
+		switch (_drum.drumState) {
+			case Enums.TYPE_NOTE.RIGHT:
 				if (pIsRight) {
 					print ("CORRECT RIGHT TAP");
 					ChangedScore (100);
 					Instantiate (prefabStarsParticles, _drum.GetLastNote ().transform.position, Quaternion.identity);
-	                _drum.DestroyNote();
+					EventsManager.Instance.Raise (new OnSFXPlay (Enums.TYPE_SFX.TAP_RIGHT));
+					_drum.DestroyNote ();
 				}
 				else {
 					print ("FAILED");
+					EventsManager.Instance.Raise (new OnSFXPlay (Enums.TYPE_SFX.FAIL));
 				}
 
-                break;
+				break;
 
-            case Enums.TYPE_NOTE.LEFT:
+			case Enums.TYPE_NOTE.LEFT:
 				if (!pIsRight) {
 					print ("CORRECT LEFT TAP");
 					ChangedScore (100);
-					Instantiate (prefabStarsParticles, _drum.GetLastNote().transform.position, Quaternion.identity);
+					Instantiate (prefabStarsParticles, _drum.GetLastNote ().transform.position, Quaternion.identity);
 					_drum.DestroyNote ();
+					EventsManager.Instance.Raise (new OnSFXPlay (Enums.TYPE_SFX.TAP_LEFT));
 				}
-				else print ("FAILED");
-				
-                break;
+				else {
+					print ("FAILED");
+					EventsManager.Instance.Raise (new OnSFXPlay (Enums.TYPE_SFX.FAIL));
+				}
+				break;
 
             case Enums.TYPE_NOTE.ALL:
+                if (!pIsRight)
+                {
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.TAP_LEFT));
+                }
+                else
+                {
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.TAP_RIGHT));
+                }
                 print("CORRECT TAP");
 				ChangedScore (100);
 				//Instantiate (prefabStarsParticles, drum.transform.position, Quaternion.identity);
@@ -135,7 +147,10 @@ public class GameManager : MonoBehaviour
 				break;
 
             case Enums.TYPE_NOTE.NONE:
-                print("FAILED");
+                {
+                    print("FAILED");
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.FAIL));
+                }
                 break;
         }
 
