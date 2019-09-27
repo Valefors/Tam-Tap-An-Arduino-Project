@@ -51,8 +51,11 @@ public class GameManager : MonoBehaviour
 
             case Enums.GAME_STATE.SELECTION:
 
-                if (lRight) print("hard mode");
-                else print("ez mode");
+				if (lRight) {
+					print ("hard mode");
+				} else {
+					print ("ez mode");
+				}
 
                 state = Enums.GAME_STATE.GAME;
 				_currentLevel = Instantiate (_level);
@@ -90,7 +93,7 @@ public class GameManager : MonoBehaviour
 				if (pIsRight) {
 					print ("CORRECT RIGHT TAP");
 					ChangedScore (100);
-					Instantiate (prefabStarsParticles, drum.transform.position, Quaternion.identity);
+					Instantiate (prefabStarsParticles, drum.GetLastNote().transform.position, Quaternion.identity);
 				}
 				else print ("FAILED");
 
@@ -101,7 +104,7 @@ public class GameManager : MonoBehaviour
 				if (!pIsRight) {
 					print ("CORRECT LEFT TAP");
 					ChangedScore (100);
-					Instantiate (prefabStarsParticles, drum.transform.position, Quaternion.identity);
+					Instantiate (prefabStarsParticles, drum.GetLastNote().transform.position, Quaternion.identity);
 				}
 				else print ("FAILED");
 
