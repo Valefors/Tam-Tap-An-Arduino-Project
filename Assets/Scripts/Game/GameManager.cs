@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour
 				print ("CORRECT TAP");
 				ChangedScore (100);
 				//Instantiate (prefabStarsParticles, drum.transform.position, Quaternion.identity);
-				_drum.ScaleNote ();
+				//_drum.ScaleNote ();
 				break;
 
             case Enums.TYPE_NOTE.NONE:
