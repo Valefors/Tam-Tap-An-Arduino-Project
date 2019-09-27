@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
     void OnTapReceive(OnTap e)
     {
         bool lRight = e.isRight;
-        EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.FAIL));
 
         switch (state)
         {
@@ -96,33 +95,54 @@ public class GameManager : MonoBehaviour
 					ChangedScore (100);
 					Instantiate (prefabStarsParticles, drum.GetLastNote ().transform.position, Quaternion.identity);
 	                drum.DestroyNote();
-				}
-				else {
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.TAP_RIGHT));
+
+                }
+                else {
 					print ("FAILED");
-				}
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.FAIL));
+
+                }
 
                 break;
 
             case Enums.TYPE_NOTE.LEFT:
-				if (!pIsRight) {
-					print ("CORRECT LEFT TAP");
-					ChangedScore (100);
-					Instantiate (prefabStarsParticles, drum.GetLastNote().transform.position, Quaternion.identity);
-					drum.DestroyNote ();
-				}
-				else print ("FAILED");
-				
+                if (!pIsRight)
+                {
+                    print("CORRECT LEFT TAP");
+                    ChangedScore(100);
+                    Instantiate(prefabStarsParticles, drum.GetLastNote().transform.position, Quaternion.identity);
+                    drum.DestroyNote();
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.TAP_LEFT));
+                }
+                else
+                {
+                    print("FAILED");
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.FAIL));
+                }
+
                 break;
 
             case Enums.TYPE_NOTE.ALL:
+                if (!pIsRight)
+                {
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.TAP_LEFT));
+                }
+                else
+                {
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.TAP_RIGHT));
+                }
                 print("CORRECT TAP");
 				ChangedScore (100);
 				//Instantiate (prefabStarsParticles, drum.transform.position, Quaternion.identity);
 				drum.ScaleNote ();
-				break;
+                break;
 
             case Enums.TYPE_NOTE.NONE:
-                print("FAILED");
+                {
+                    print("FAILED");
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.FAIL));
+                }
                 break;
         }
 

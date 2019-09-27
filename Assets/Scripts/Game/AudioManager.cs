@@ -57,7 +57,15 @@ public class AudioManager : MonoBehaviour
         switch (e.sfxType)
         {
             case Enums.TYPE_SFX.FAIL:
-                _audioSFXSource.clip = _failSFX;
+                float rand = Random.Range(0, 3);
+                if (rand > 1f)
+                {
+                    _audioSFXSource.clip = _failSFX;
+                }
+                else
+                {
+                    _audioSFXSource.clip = _fail2SFX;
+                }
                 break;
 
             case Enums.TYPE_SFX.TAP_LEFT:
