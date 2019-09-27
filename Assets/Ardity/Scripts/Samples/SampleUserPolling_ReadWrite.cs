@@ -16,6 +16,9 @@ public class SampleUserPolling_ReadWrite : MonoBehaviour
 {
     public SerialController serialController;
 
+    public bool leftDrumInput = false;
+    //public bool rightDrumInput = false;
+
     // Initialization
     void Start()
     {
@@ -27,12 +30,36 @@ public class SampleUserPolling_ReadWrite : MonoBehaviour
     // Executed each frame
     void Update()
     {
-        //---------------------------------------------------------------------
-        // Send data
-        //---------------------------------------------------------------------
+        ReceiveDatas();
+        SendDatas();
+    }
 
-        // If you press one of these keys send it to the serial device. A
-        // sample serial device that accepts this input is given in the README.
+    void ReceiveDatas()
+    {
+
+        string message = serialController.ReadSerialMessage();
+
+        if (message == null) return;
+
+        // Check if the message is plain data or a connect/disconnect event.
+        if (ReferenceEquals(message, SerialController.SERIAL_DEVICE_CONNECTED))
+        {
+            Debug.Log("Connection established");
+        }
+        else if (ReferenceEquals(message, SerialController.SERIAL_DEVICE_DISCONNECTED))
+        {
+            Debug.Log("Connection attempt failed or disconnection detected");
+        }
+        else
+        {
+            Debug.Log("Message arrived: " + message);
+            if(message == "left") EventsManager.Instance.Raise(new OnTap(false));
+            if(message == "right") EventsManager.Instance.Raise(new OnTap(true));
+        }
+    }
+
+    void SendDatas()
+    {
         if (Input.GetKeyDown(KeyCode.A))
         {
             Debug.Log("Sending A");
@@ -44,23 +71,5 @@ public class SampleUserPolling_ReadWrite : MonoBehaviour
             Debug.Log("Sending Z");
             serialController.SendSerialMessage("Z");
         }
-
-
-        //---------------------------------------------------------------------
-        // Receive data
-        //---------------------------------------------------------------------
-
-        string message = serialController.ReadSerialMessage();
-
-        if (message == null)
-            return;
-
-        // Check if the message is plain data or a connect/disconnect event.
-        if (ReferenceEquals(message, SerialController.SERIAL_DEVICE_CONNECTED))
-            Debug.Log("Connection established");
-        else if (ReferenceEquals(message, SerialController.SERIAL_DEVICE_DISCONNECTED))
-            Debug.Log("Connection attempt failed or disconnection detected");
-        else
-            Debug.Log("Message arrived: " + message);
     }
 }
