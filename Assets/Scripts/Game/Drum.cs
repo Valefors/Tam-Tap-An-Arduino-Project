@@ -16,6 +16,12 @@ public class Drum : MonoBehaviour
         EventsManager.Instance.AddListener<OnTap>(CreateNote);
     }
 
+	public void SetDifficultyLevel(bool hardMode) {
+		GetComponent<SpriteRenderer> ().enabled = hardMode;
+		GetComponent<BoxCollider> ().enabled = !hardMode;
+		GetComponent<SphereCollider> ().enabled = hardMode;
+	}
+
 	private void Update () {
 		if (scaleTimer > 0) {
 			scaleTimer -= Time.deltaTime;

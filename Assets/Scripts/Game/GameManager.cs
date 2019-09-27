@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] Drum drum = null;
+    [SerializeField] Drum _drum = null;
     public Enums.GAME_STATE state = Enums.GAME_STATE.MENU;
 	public GameObject prefabStarsParticles;
 	public int score = 0;
-	[SerializeField] GameObject _level;
+	[SerializeField] GameObject _easyLevel;
+	[SerializeField] GameObject _hardLevel;
+	bool _hardMode = false;
 	GameObject _currentLevel;
+	[SerializeField] Bamboo _bamboo;
 
     #region Singleton
     public static GameManager instance {
@@ -27,7 +30,7 @@ public class GameManager : MonoBehaviour
         EventsManager.Instance.AddListener<OnTap>(OnTapReceive);
         EventsManager.Instance.AddListener<OnEndGame>(OnEndGame);
 
-        if (drum == null) Debug.LogError("NO DRUM INSERT");
+        if (_drum == null) Debug.LogError("NO DRUM INSERT");
     }
     #endregion
 
@@ -53,12 +56,19 @@ public class GameManager : MonoBehaviour
 
 				if (lRight) {
 					print ("hard mode");
+					_drum.SetDifficultyLevel (true);
+					_bamboo.DisplayBamboo (true);
+					_currentLevel = Instantiate (_hardLevel);
+					_hardMode = true;
 				} else {
 					print ("ez mode");
+					_drum.SetDifficultyLevel (false);
+					_bamboo.DisplayBamboo (false);
+					_currentLevel = Instantiate (_easyLevel);
+					_hardMode = false;
 				}
 
                 state = Enums.GAME_STATE.GAME;
-				_currentLevel = Instantiate (_level);
                 EventsManager.Instance.Raise(new OnGameStateChanged());
                 return;
 
@@ -75,7 +85,11 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     state = Enums.GAME_STATE.GAME;
-					_currentLevel = Instantiate (_level);
+					if (_hardMode) {
+						_currentLevel = Instantiate (_hardLevel);
+					} else {
+						_currentLevel = Instantiate (_easyLevel);
+					}
 				}
 				ResetScore ();
 
@@ -87,14 +101,14 @@ public class GameManager : MonoBehaviour
 
     void CheckCorrectTap(bool pIsRight)
     {
-        switch (drum.drumState)
+        switch (_drum.drumState)
         {
             case Enums.TYPE_NOTE.RIGHT:
 				if (pIsRight) {
 					print ("CORRECT RIGHT TAP");
 					ChangedScore (100);
-					Instantiate (prefabStarsParticles, drum.GetLastNote ().transform.position, Quaternion.identity);
-	                drum.DestroyNote();
+					Instantiate (prefabStarsParticles, _drum.GetLastNote ().transform.position, Quaternion.identity);
+	                _drum.DestroyNote();
 				}
 				else {
 					print ("FAILED");
@@ -106,8 +120,8 @@ public class GameManager : MonoBehaviour
 				if (!pIsRight) {
 					print ("CORRECT LEFT TAP");
 					ChangedScore (100);
-					Instantiate (prefabStarsParticles, drum.GetLastNote().transform.position, Quaternion.identity);
-					drum.DestroyNote ();
+					Instantiate (prefabStarsParticles, _drum.GetLastNote().transform.position, Quaternion.identity);
+					_drum.DestroyNote ();
 				}
 				else print ("FAILED");
 				
@@ -117,7 +131,7 @@ public class GameManager : MonoBehaviour
                 print("CORRECT TAP");
 				ChangedScore (100);
 				//Instantiate (prefabStarsParticles, drum.transform.position, Quaternion.identity);
-				drum.ScaleNote ();
+				_drum.ScaleNote ();
 				break;
 
             case Enums.TYPE_NOTE.NONE:
