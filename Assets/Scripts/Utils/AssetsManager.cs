@@ -11,4 +11,8 @@ public static class AssetsManager
 
     public static Sprite rightNote = Resources.Load("Notes/blue_note", typeof(Sprite)) as Sprite;
     public static Sprite leftNote = Resources.Load("Notes/red_note", typeof(Sprite)) as Sprite;
+
+    public static Sprite monkeyNeutralFace = Resources.Load("Monkey/Expressions/monkey_neutral", typeof(Sprite)) as Sprite;
+    public static Sprite monkeyHappyFace = Resources.Load("Monkey/Expressions/monkey_happy", typeof(Sprite)) as Sprite;
+    public static Sprite monkeyVeryHappyFace = Resources.Load("Monkey/Expressions/monkey_very_happy", typeof(Sprite)) as Sprite;
 }

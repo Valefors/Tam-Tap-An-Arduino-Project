@@ -52,8 +52,6 @@ public class AudioManager : MonoBehaviour
 
     void PlaySFX(OnSFXPlay e)
     {
-        //EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.FAIL));
-
         switch (e.sfxType)
         {
             case Enums.TYPE_SFX.FAIL:

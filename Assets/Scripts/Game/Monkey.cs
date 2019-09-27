@@ -71,29 +71,52 @@ public class Monkey : MonoBehaviour
         switch (_currentState)
         {
             case Enums.TYPE_NOTE.RIGHT:
-                _rightHand.sprite = AssetsManager.monkeyRightHandDownSprite;
-                _rightHand.sortingOrder = LAYER_FRONT;
-                _particleRightHand.Play();
-                _leftHand.sprite = AssetsManager.monkeyLeftHandUpSprite;
-                _leftHand.sortingOrder = LAYER_BACK;
+                HandRight();
                 break;
 
             case Enums.TYPE_NOTE.NONE:
-                _rightHand.sprite = AssetsManager.monkeyRightHandUpSprite;
-                _rightHand.sortingOrder = LAYER_BACK;
-
-                _leftHand.sprite = AssetsManager.monkeyLeftHandUpSprite;
-                _leftHand.sortingOrder = LAYER_BACK;
+                HandOff();
                 break;
 
             case Enums.TYPE_NOTE.LEFT:
-                _leftHand.sprite = AssetsManager.monkeyLeftHandDownSprite;
-                _leftHand.sortingOrder = LAYER_FRONT;
-                _particleLeftHand.Play();
-                _rightHand.sprite = AssetsManager.monkeyRightHandUpSprite;
-                _rightHand.sortingOrder = LAYER_BACK;
+                HandLeft();
                 break;
         }
+    }
+
+    void HandOff()
+    {
+        _rightHand.sprite = AssetsManager.monkeyRightHandUpSprite;
+        _rightHand.sortingOrder = LAYER_BACK;
+
+        _leftHand.sprite = AssetsManager.monkeyLeftHandUpSprite;
+        _leftHand.sortingOrder = LAYER_BACK;
+
+        _expression.sprite = AssetsManager.monkeyNeutralFace;
+    }
+
+    void HandRight()
+    {
+        _rightHand.sprite = AssetsManager.monkeyRightHandDownSprite;
+        _rightHand.sortingOrder = LAYER_FRONT;
+        _particleRightHand.Play();
+        _leftHand.sprite = AssetsManager.monkeyLeftHandUpSprite;
+        _leftHand.sortingOrder = LAYER_BACK;
+
+        if(_leftHandTimer > 0) _expression.sprite = AssetsManager.monkeyVeryHappyFace;
+        else _expression.sprite = AssetsManager.monkeyHappyFace;
+    }
+
+    void HandLeft()
+    {
+        _leftHand.sprite = AssetsManager.monkeyLeftHandDownSprite;
+        _leftHand.sortingOrder = LAYER_FRONT;
+        _particleLeftHand.Play();
+        _rightHand.sprite = AssetsManager.monkeyRightHandUpSprite;
+        _rightHand.sortingOrder = LAYER_BACK;
+
+        if (_rightHandTimer > 0) _expression.sprite = AssetsManager.monkeyVeryHappyFace;
+        else _expression.sprite = AssetsManager.monkeyHappyFace;
     }
 
     private void OnDestroy()
