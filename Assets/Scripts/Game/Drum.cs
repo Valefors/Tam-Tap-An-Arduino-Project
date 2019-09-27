@@ -6,6 +6,8 @@ public class Drum : MonoBehaviour
 {
     public Enums.TYPE_NOTE drumState = Enums.TYPE_NOTE.NONE;
 	Queue<Note> _currentNotes = new Queue<Note>();
+	float scaleTimer = 0;
+	Vector3 scaleNoteLocalScale;
 
     [SerializeField] Note _notePrefab = null;
 
@@ -14,7 +16,19 @@ public class Drum : MonoBehaviour
         EventsManager.Instance.AddListener<OnTap>(CreateNote);
     }
 
-    private void OnTriggerEnter(Collider pCollider)
+	private void Update () {
+		if (scaleTimer > 0) {
+			scaleTimer -= Time.deltaTime;
+			if (scaleTimer < 0) {
+				scaleTimer = 0;
+			}
+			if (_currentNotes.Count != 0 && _currentNotes.Peek().type == Enums.TYPE_NOTE.ALL) {
+				_currentNotes.Peek().transform.localScale = scaleNoteLocalScale * (1 + 0.2f * Mathf.Sin((0.05f - scaleTimer) * 20 * Mathf.PI));
+			}
+		}
+	}
+
+	private void OnTriggerEnter(Collider pCollider)
     {
         if (GameManager.instance.state == Enums.GAME_STATE.CREATE) return;
 
@@ -32,6 +46,13 @@ public class Drum : MonoBehaviour
 
         Instantiate(_notePrefab, transform.position, Quaternion.identity);
     }
+
+	public void ScaleNote() {
+		if (_currentNotes.Count == 0 || scaleTimer > 0) return;
+
+		scaleTimer = 0.05f;
+		scaleNoteLocalScale = _currentNotes.Peek ().transform.localScale;
+	}
 
     public void DestroyNote()
     {

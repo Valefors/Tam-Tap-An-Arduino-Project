@@ -20,4 +20,13 @@ public static class Enums
         CREATE,
         END
     };
+
+    public enum TYPE_SFX
+    {
+        TAP_LEFT,
+        TAP_RIGHT,
+        FAIL,
+        MOKEY_NEUTRAL,
+        MOKEY_HAPPY
+    };
 }
