@@ -94,11 +94,13 @@ public class GameManager : MonoBehaviour
 				if (pIsRight) {
 					print ("CORRECT RIGHT TAP");
 					ChangedScore (100);
-					Instantiate (prefabStarsParticles, drum.GetLastNote().transform.position, Quaternion.identity);
+					Instantiate (prefabStarsParticles, drum.GetLastNote ().transform.position, Quaternion.identity);
+	                drum.DestroyNote();
 				}
-				else print ("FAILED");
+				else {
+					print ("FAILED");
+				}
 
-                drum.DestroyNote();
                 break;
 
             case Enums.TYPE_NOTE.LEFT:
@@ -106,16 +108,17 @@ public class GameManager : MonoBehaviour
 					print ("CORRECT LEFT TAP");
 					ChangedScore (100);
 					Instantiate (prefabStarsParticles, drum.GetLastNote().transform.position, Quaternion.identity);
+					drum.DestroyNote ();
 				}
 				else print ("FAILED");
-
-                drum.DestroyNote();
+				
                 break;
 
             case Enums.TYPE_NOTE.ALL:
                 print("CORRECT TAP");
 				ChangedScore (100);
-				Instantiate (prefabStarsParticles, drum.transform.position, Quaternion.identity);
+				//Instantiate (prefabStarsParticles, drum.transform.position, Quaternion.identity);
+				drum.ScaleNote ();
 				break;
 
             case Enums.TYPE_NOTE.NONE:
