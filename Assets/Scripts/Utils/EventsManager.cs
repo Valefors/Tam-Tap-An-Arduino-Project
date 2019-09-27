@@ -12,6 +12,15 @@ public class OnTap:Event
     }
 }
 
+public class OnSFXPlay:Event
+{
+    public Enums.TYPE_SFX sfxType;
+    public OnSFXPlay(Enums.TYPE_SFX pSfxType)
+    {
+        sfxType = pSfxType;
+    }
+}
+
 public class OnScoreChanged:Event { }
 
 public class OnGameStateChanged:Event { }

@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     void OnTapReceive(OnTap e)
     {
         bool lRight = e.isRight;
+        EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.FAIL));
 
         switch (state)
         {
