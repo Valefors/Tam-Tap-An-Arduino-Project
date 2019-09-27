@@ -49,6 +49,10 @@ public class Drum : MonoBehaviour
 		}
     }
 
+	public Note GetLastNote() {
+		return _currentNotes.Peek();
+	}
+
     private void OnTriggerExit(Collider other)
     {
         if (GameManager.instance.state == Enums.GAME_STATE.CREATE) return;
