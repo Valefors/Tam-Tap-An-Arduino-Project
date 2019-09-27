@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case Enums.GAME_STATE.MENU:
+                EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.TAP_RIGHT));
                 state = Enums.GAME_STATE.SELECTION;
                 EventsManager.Instance.Raise(new OnGameStateChanged());
                 return;
@@ -55,14 +56,15 @@ public class GameManager : MonoBehaviour
             case Enums.GAME_STATE.SELECTION:
 
 				if (lRight) {
-					print ("hard mode");
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.TAP_RIGHT));
 					_drum.SetDifficultyLevel (true);
 					_bamboo.DisplayBamboo (true);
 					_currentLevel = Instantiate (_hardLevel);
 					_hardMode = true;
 				} else {
 					print ("ez mode");
-					_drum.SetDifficultyLevel (false);
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.TAP_LEFT));
+                    _drum.SetDifficultyLevel (false);
 					_bamboo.DisplayBamboo (false);
 					_currentLevel = Instantiate (_easyLevel);
 					_hardMode = false;
@@ -79,11 +81,14 @@ public class GameManager : MonoBehaviour
             case Enums.GAME_STATE.END:
                 if (lRight)
                 {
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.TAP_RIGHT));
                     state = Enums.GAME_STATE.MENU;
                 }
 
                 else
                 {
+                    EventsManager.Instance.Raise(new OnSFXPlay(Enums.TYPE_SFX.TAP_LEFT));
+
                     state = Enums.GAME_STATE.GAME;
 					if (_hardMode) {
 						_currentLevel = Instantiate (_hardLevel);
